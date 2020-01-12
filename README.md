@@ -1,1 +1,1 @@
-# itelligence_menu
+A library for Dart developers.
