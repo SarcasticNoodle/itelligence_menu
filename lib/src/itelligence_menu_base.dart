@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:itelligence_menu/src/models/menu_entry.dart';
+import 'models/menu_entry.dart';
+import 'extensions.dart';
 import 'package:html/parser.dart' as parser;
 import 'package:html/dom.dart';
 
@@ -26,24 +27,5 @@ class ItelligenceMenuClient {
     var supplements = element.querySelectorAll('tr > td.essen').last.innerHtml.split('<br>').map((s) => s.replaceAll('\n', '')).toList();
 
     return MenuEntry(date: DateTime.parse(date), selectionOne: selections.first, campaignMeal: selections[1], selectionTwo: selections[2], supplements: supplements);
-  }
-}
-
-extension on String {
-  String swapChars(int first, int last) {
-    var firstChar = this[first];
-    var lastChar = this[last];
-    var firstPart = substring(0, first) + lastChar;
-    var secondPart = substring(first + 1, last) + firstChar;
-    var lastPart = substring(last + 1);
-    return firstPart + secondPart + lastPart;
-  }
-
-  String get reversed {
-    var s = StringBuffer();
-    for (var i = length - 1; i >= 0; i--) {
-      s.write(this[i]);
-    }
-    return s.toString();
   }
 }
