@@ -2,7 +2,7 @@
 Scraping interface for https://speiseplan.app.itelligence.org/
 Usage:
 
-```
+```dart
 ItelligenceMenuClient it = ItelligenceMenuClient();
 // Await the items in the stream
 List<MenuEntry> entries = await it.getMenuEntries().toList();
